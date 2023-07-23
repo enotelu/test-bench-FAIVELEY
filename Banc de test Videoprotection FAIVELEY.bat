@@ -27,8 +27,8 @@ rem COMMANDE XEBRA1
 rem ------------o
 :xebra1
 ECHO Attendre...
-netsh interface ip set address "Connexion au r‚seau local" static 10.0.0.2 255.252.0.0 10.0.255.253 1  
-netsh interface ip set address "Connexion r‚seau sans fil" static 10.0.0.3 255.252.0.0 10.0.255.253 1  
+netsh interface ip set address "Connexion au rï¿½seau local" static 10.0.0.2 255.252.0.0 10.0.255.253 1  
+netsh interface ip set address "Connexion rï¿½seau sans fil" static 10.0.0.3 255.252.0.0 10.0.255.253 1  
 
 rem Recuperation de l'adresse IP du xebra1 avec la commande arp
 rem ------------o
@@ -40,7 +40,7 @@ echo Set WshShell = Nothing >> "%script%"
 cscript //nologo "%script%"
 del "%script%"
 
-rem Recherche d'une IP commançant par 10.0 (permet de ne pas confondre avec 192.168.)
+rem Recherche d'une IP commanï¿½ant par 10.0 (permet de ne pas confondre avec 192.168.)
 rem ------------o
 for /f "delims= " %%i in ('arp -a') do (
     if not "%%i"=="(Interface)" (
@@ -96,8 +96,8 @@ rem COMMANDE XEBRA3
 rem ------------o
 :xebra3
 ECHO Attendre...
-netsh interface ip set address "Connexion au r‚seau local" static 192.168.0.100 255.255.255.0  192.168.0.100 1
-netsh interface ip set address "Connexion r‚seau sans fil" dhcp  
+netsh interface ip set address "Connexion au rï¿½seau local" static 192.168.0.100 255.255.255.0  192.168.0.100 1
+netsh interface ip set address "Connexion rï¿½seau sans fil" dhcp  
 
 rem ouvre Firefox et on ecrit l'IP 192.168.0.1
 rem ------------o
@@ -143,8 +143,8 @@ goto eof
 
 :camip
 ECHO Attendre...
-netsh interface ip set address "Connexion au r‚seau local" static 192.168.1.100 255.255.255.0  192.168.1.100 1
-netsh interface ip set address "Connexion r‚seau sans fil" dhcp  
+netsh interface ip set address "Connexion au rï¿½seau local" static 192.168.1.100 255.255.255.0  192.168.1.100 1
+netsh interface ip set address "Connexion rï¿½seau sans fil" dhcp  
 
 rem ouvre Firefox et on ecrit l'IP 192.168.1.108
 rem ------------o
@@ -167,22 +167,3 @@ ECHO Attendre...
 goto eof   
    
 :eof
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-::by Thibault LAVAL
