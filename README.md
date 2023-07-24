@@ -17,4 +17,4 @@ Programme tester sur :
 
 Attention prérequis :
 - logciel XTrack de Faiveley pour un contrôle complet des systèmes
-- logiciel HDD
+- logiciel HDDLLF.4.25 pour le formatage des disques dur
