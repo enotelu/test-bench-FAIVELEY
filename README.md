@@ -5,7 +5,7 @@ Programmes d'automatisation pour banc de test faiveley. (adressage IP et formata
 
 Le but de ce projet est d'automatiser le banc de test Videoprotection FAIVELEY afin de gagner en productivité. Les modification hardware du banc effectué les programmes suivant permettent d'automatiser la partie software (réglage et visualisation des XEBRA et le formatage des disques HDD).
 
-##**Programme _Banc de test Videoprotection FAIVELEY.bat_ :**
+##**Programme _Banc de test Videoprotection FAIVELEY.bat_ :**##
 
 Le fichier _Banc de test Videoprotection FAIVELEY.bat_ permet d'automatiser l'adressage IP selon le système ainsi que l'ouverture de la page de configuration.
 Avant de lancer le programmes, vérifier les points suivants:
@@ -24,7 +24,7 @@ Programme tester sur :
 Attention prérequis :
 - logciel XTrack de Faiveley pour un contrôle complet des systèmes
 
-##**Programme _HDD TEST.bat_ :**
+##**Programme _HDD TEST.bat_ :**##
 
 Le fichier _HDD TEST.bat_ permet d'automatiser le formatage des disques dur pour les enregistreurs XEBRA. Il vient formater les disques à l'aide du logiciel HDDLLF, attention ce logiciel permet de formater le disque principal du PC (faire ATTENTION). Le programme permet de vérifier le nombre de disque dur connecté et de stopper le processus avant le formatage si il n'y a que le disque principal de connecté.
 Avant de lancer le programmes, vérifier les points suivants:
