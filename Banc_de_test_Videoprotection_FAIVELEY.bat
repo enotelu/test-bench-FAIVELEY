@@ -61,12 +61,13 @@ for /f "delims= " %%i in ('arp -a') do (
 
 :continue
 
-:: Ouvre Firefox et on copie l'IP trouvee precedement
+:: Ouvre Firefox
 start firefox -new-tab "about:blank"
 
 ::lance un ping et attend 4s (laisse le temps a Firefox de s'ouvrir)
 ping 127.0.0.1 -n 4 >nul
 
+:: on vient copier l'IP trouvee precedement
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.AppActivate ("Mozilla Firefox") >> tmp.vbs
 echo WshShell.SendKeys ("{TAB}{TAB}") >> tmp.vbs
@@ -78,12 +79,14 @@ del tmp.vbs
 ::lance un ping et attend 6s (permet aux pages de charger)
 ping 127.0.0.1 -n 6 >nul
 
+:: on se deplace sur la page web afin d'inscrire le MDP
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.AppActivate ("Mozilla Firefox") >> tmp.vbs
 echo WshShell.SendKeys ("{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}") >> tmp.vbs
 cscript tmp.vbs
 del tmp.vbs
 
+:: on rempli les champs pour le MDP
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.SendKeys ("xebra") >> tmp.vbs
 echo WshShell.SendKeys ("{TAB}") >> tmp.vbs
@@ -135,6 +138,7 @@ del tmp.vbs
 ::lance un ping et attend 2s (permet aux pages de charger)
 ping 127.0.0.1 -n 2 >nul
 
+:: on se deplace sur la page web afin d'inscrire le MDP
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.SendKeys ("{TAB}{ENTER}") >> tmp.vbs
 cscript tmp.vbs
@@ -162,6 +166,7 @@ goto eof
 :: ------------o
 
 
+:: COMMANDE Configuration Cam IP
 :: ------------o
 :camip
 ECHO Attendre...
