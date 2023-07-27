@@ -3,7 +3,7 @@
 
 Programmes d'automatisation pour banc de test FAIVELEY. (adressage IP et formatage disque)
 
-Le but de ce projet est d'automatiser le banc de test Videoprotection FAIVELEY afin de gagner en productivité. Les modification hardware du banc effectué les programmes suivant permettent d'automatiser la partie software (réglage et visualisation des XEBRA et le formatage des disques HDD).
+Le but de ce projet est d'automatiser le banc de test Videoprotection FAIVELEY afin de gagner en productivité. Les modification hardware du banc étant effectué, les programmes suivant permettent d'automatiser la partie software (réglage et visualisation des XEBRA et le formatage des disques HDD).
 
 
 **Programme _Banc de test Videoprotection FAIVELEY.bat_ :**
