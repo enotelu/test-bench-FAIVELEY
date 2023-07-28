@@ -24,11 +24,11 @@ if "%optionMenu%"=="3" goto camip
 if "%optionMenu%"=="4" goto exit
 
 
-% COMMANDE XEBRA1 %
+rem COMMANDE XEBRA1
 rem ------------o
 :xebra1
 ECHO Attendre...
-::change l'interface IP permettant de se connecter au XEBRA
+rem change l'interface IP permettant de se connecter au XEBRA
 netsh interface ip set address "Connexion au r‚seau local" static 10.0.0.2 255.252.0.0 10.0.255.253 1  
 netsh interface ip set address "Connexion r‚seau sans fil" static 10.0.0.3 255.252.0.0 10.0.255.253 1  
 
@@ -68,12 +68,12 @@ for /f "delims= " %%i in ('arp -a') do (
 
 :continue
 
-:: Ouvre Firefox
+rem Ouvre Firefox
 start firefox -new-tab "about:blank"
-::lance un ping et attend 4s (laisse le temps a Firefox de s'ouvrir)
+rem lance un ping et attend 4s (laisse le temps a Firefox de s'ouvrir)
 ping 127.0.0.1 -n 4 >nul
 
-:: on vient copier l'IP trouvee precedement
+rem on vient copier l'IP trouvee precedement
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.AppActivate ("Mozilla Firefox") >> tmp.vbs
 echo WshShell.SendKeys ("{TAB}{TAB}") >> tmp.vbs
@@ -82,17 +82,17 @@ echo WshShell.SendKeys ("{ENTER}") >> tmp.vbs
 cscript tmp.vbs
 del tmp.vbs
 
-::lance un ping et attend 6s (permet aux pages de charger)
+rem lance un ping et attend 6s (permet aux pages de charger)
 ping 127.0.0.1 -n 6 >nul
 
-:: on se deplace sur la page web afin d'inscrire le MDP
+rem on se deplace sur la page web afin d'inscrire le MDP
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.AppActivate ("Mozilla Firefox") >> tmp.vbs
 echo WshShell.SendKeys ("{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}") >> tmp.vbs
 cscript tmp.vbs
 del tmp.vbs
 
-:: on rempli les champs pour le MDP
+rem on rempli les champs pour le MDP
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.SendKeys ("xebra") >> tmp.vbs
 echo WshShell.SendKeys ("{TAB}") >> tmp.vbs
@@ -101,54 +101,54 @@ echo WshShell.SendKeys ("{ENTER}") >> tmp.vbs
 cscript tmp.vbs
 del tmp.vbs
 
-::ouvre XTrack
+rem ouvre XTrack
 ping 127.0.0.1 -n 4 >nul
 cd C:\Programmes Files (x86)\Faiveley
 start /min xtrack.exe
 ping 127.0.0.1 -n 4 >nul
 
 goto eof
-:: ------------o
+rem ------------o
 
 
-:: COMMANDE XEBRA3
-:: ------------o
+rem COMMANDE XEBRA3
+rem ------------o
 :xebra3
 ECHO Attendre...
-::change l'interface IP permettant de se connecter au XEBRA
+rem change l'interface IP permettant de se connecter au XEBRA
 netsh interface ip set address "Connexion au r‚seau local" static 192.168.0.100 255.255.255.0  192.168.0.100 1
 netsh interface ip set address "Connexion r‚seau sans fil" dhcp  
 
-:: ouvre Firefox et on ecrit l'IP 192.168.0.1 (adresse IP du XEBRA3)
+rem ouvre Firefox et on ecrit l'IP 192.168.0.1 (adresse IP du XEBRA3)
 start firefox -new-tab "about:blank"
-::lance un ping et attend 4s (laisse le temps a Firefox de s'ouvrir)
+rem lance un ping et attend 4s (laisse le temps a Firefox de s'ouvrir)
 ping 127.0.0.1 -n 4 >nul
 
-:: Cette ligne crée une nouvelle instance de l'objet WScript.Shell.
+rem Cette ligne crée une nouvelle instance de l'objet WScript.Shell.
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
-:: Cette ligne active l'application Mozilla Firefox.
+rem Cette ligne active l'application Mozilla Firefox.
 echo WshShell.AppActivate ("Mozilla Firefox") >> tmp.vbs
-:: Cette ligne envoie la touche TAB deux fois à l'application Mozilla Firefox.
+rem Cette ligne envoie la touche TAB deux fois à l'application Mozilla Firefox.
 echo WshShell.SendKeys ("{TAB}{TAB}") >> tmp.vbs
-:: Cette ligne envoie l'adresse IP 192.168.0.1 à l'application Mozilla Firefox.
+rem Cette ligne envoie l'adresse IP 192.168.0.1 à l'application Mozilla Firefox.
 echo WshShell.SendKeys ("192.168.0.1") >> tmp.vbs
-:: Cette ligne envoie la touche Entrée à l'application Mozilla Firefox.
+rem Cette ligne envoie la touche Entrée à l'application Mozilla Firefox.
 echo WshShell.SendKeys ("{ENTER}") >> tmp.vbs
-:: Cette ligne exécute le fichier tmp.vbs, qui contient le code des lignes précédentes.
+rem Cette ligne exécute le fichier tmp.vbs, qui contient le code des lignes précédentes.
 cscript tmp.vbs
-:: Cette ligne supprime le fichier tmp.vbs.
+rem Cette ligne supprime le fichier tmp.vbs.
 del tmp.vbs
 
-::lance un ping et attend 2s (permet aux pages de charger)
+rem lance un ping et attend 2s (permet aux pages de charger)
 ping 127.0.0.1 -n 2 >nul
 
-:: on se deplace sur la page web afin d'inscrire le MDP
+rem on se deplace sur la page web afin d'inscrire le MDP
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.SendKeys ("{TAB}{ENTER}") >> tmp.vbs
 cscript tmp.vbs
 del tmp.vbs
 
-::on ecrit le MDP pour le XEBRA3
+rem on ecrit le MDP pour le XEBRA3
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > tmp.vbs
 echo WshShell.SendKeys ("{TAB}") >> tmp.vbs
 echo WshShell.SendKeys ("maint") >> tmp.vbs
@@ -166,25 +166,25 @@ echo WshShell.SendKeys ("{ENTER}") >> tmp.vbs
 cscript tmp.vbs
 del tmp.vbs
 
-::ouvre XTrack
+rem ouvre XTrack
 ping 127.0.0.1 -n 4 >nul
 cd C:\Programmes Files (x86)\Faiveley
 start /min xtrack.exe
 ping 127.0.0.1 -n 4 >nul
 
 goto eof
-:: ------------o
+rem ------------o
 
 
-:: COMMANDE Configuration Cam IP
-:: ------------o
+rem COMMANDE Configuration Cam IP
+rem ------------o
 :camip
 ECHO Attendre...
 netsh interface ip set address "Connexion au r‚seau local" static 192.168.1.100 255.255.255.0  192.168.1.100 1
 netsh interface ip set address "Connexion r‚seau sans fil" dhcp  
 
-:: ouvre Firefox et on ecrit l'IP 192.168.1.108
-:: l'IP permet de se connecté sur les cameras sortant d'usine ou revenant de SAV
+rem ouvre Firefox et on ecrit l'IP 192.168.1.108
+rem l'IP permet de se connecté sur les cameras sortant d'usine ou revenant de SAV
 start firefox -new-tab "about:blank"
 
 ping 127.0.0.1 -n 4 >nul
@@ -198,13 +198,13 @@ cscript tmp.vbs
 del tmp.vbs
 
 goto eof
-:: ------------o
+rem ------------o
 
 
-:: ------------o
+rem ------------o
 :exit
 ECHO Attendre...
 goto eof   
-:: ------------o
+rem ------------o
    
 :eof
