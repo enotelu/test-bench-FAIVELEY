@@ -24,7 +24,7 @@ if "%optionMenu%"=="3" goto camip
 if "%optionMenu%"=="4" goto exit
 
 
-:: COMMANDE XEBRA1
+rem COMMANDE XEBRA1
 :: ------------o
 :xebra1
 ECHO Attendre...
