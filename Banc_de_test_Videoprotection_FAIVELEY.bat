@@ -24,22 +24,22 @@ if "%optionMenu%"=="3" goto camip
 if "%optionMenu%"=="4" goto exit
 
 
-rem COMMANDE XEBRA1
-:: ------------o
+% COMMANDE XEBRA1 %
+rem ------------o
 :xebra1
 ECHO Attendre...
 ::change l'interface IP permettant de se connecter au XEBRA
 netsh interface ip set address "Connexion au r‚seau local" static 10.0.0.2 255.252.0.0 10.0.255.253 1  
 netsh interface ip set address "Connexion r‚seau sans fil" static 10.0.0.3 255.252.0.0 10.0.255.253 1  
 
-:: ouvre XTrack puis le referme (bug commande arp -a)
+rem ouvre XTrack puis le referme (bug commande arp -a)
 cd C:\Programmes Files (x86)\Faiveley
 start /min xtrack.exe
 ping 127.0.0.1 -n 4 >nul
 taskkill /im xtrack.exe
 cd C:\
 
-:: execute la commande arp -a
+rem execute la commande arp -a
 set "script=%temp%\sendkeys.vbs"
 echo Set WshShell = WScript.CreateObject("WScript.Shell") > "%script%"
 echo WScript.Sleep 1000 >> "%script%"
@@ -48,11 +48,11 @@ echo Set WshShell = Nothing >> "%script%"
 cscript //nologo "%script%"
 del "%script%"
 
-:: Cette boucle for parcourt la sortie de la commande arp -a.
-:: La commande arp -a affiche la liste des adresses IP et des cartes réseau associées à un ordinateur.
-:: La boucle for extrait l'adresse IP de chaque carte réseau et la stocke dans la variable ip.
-:: Si l'adresse IP commence par 10.0, la boucle stocke l'adresse IP de la carte réseau dans la variable DeviceIP.
-:: La variable DeviceIP contient l'adresse IP de la carte réseau par défaut.
+rem Cette boucle for parcourt la sortie de la commande arp -a.
+rem La commande arp -a affiche la liste des adresses IP et des cartes réseau associées à un ordinateur.
+rem La boucle for extrait l'adresse IP de chaque carte réseau et la stocke dans la variable ip.
+rem Si l'adresse IP commence par 10.0, la boucle stocke l'adresse IP de la carte réseau dans la variable DeviceIP.
+rem La variable DeviceIP contient l'adresse IP de la carte réseau par défaut.
 for /f "delims= " %%i in ('arp -a') do (
     if not "%%i"=="(Interface)" (
         setlocal enabledelayedexpansion
