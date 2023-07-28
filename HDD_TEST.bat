@@ -10,8 +10,8 @@ if not exist "%appPath%" (
 	exit /b
 )
 
-:: Partie à tester
-:: ------------o
+rem Partie à tester
+rem ------------o
 
 echo Vérification du nombre de disques durs connectés...
 
@@ -33,7 +33,7 @@ if !nbDisks! equ 1 (
 	exit /b
 )
 
-:: ------------o
+rem ------------o
 
 start "" "%appPath%"
 
